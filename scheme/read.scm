@@ -1,0 +1,15 @@
+(define (read)
+  (define (error msg)
+    (list 'error msg))
+  (define (eof)
+    (list 'eof))
+  (define OPENPAREN #\()
+  (define CLOSEPAREN #\))
+  (define (read-next-byte) 0)
+  (or
+      (skip-whitespace-and-comments) ; Returns false. Whitespace is space, tab, cr and lf. A comment starts with a semicolon and extends to the next lf.
+      (read-list)
+      (read-string)
+      (read-character)
+      (read-number)
+      (read-symbol)))
